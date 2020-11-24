@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <audio src="" controls loop autoplay></audio>
+     <!--  controls:音频播放器控制面板
+          autoplay：自动播放
+          loop:循环
+    -->
+    <video src=""></video>
+    <!-- poster:当前视频还没有完全下载，或者用户还没有点击播放前默认显示的封面。
+    默认显示当前视频文件的第一帧 -->
+    <!-- 注意：当设置宽高的时候，一般情况下只会设置宽或高，让其自动的等比缩放。
+        如果同时设置宽度和高度 ，那么视频并不会真正的调整到设置的宽高，除非正好是等比例-->
+    <!-- source的使用：因为不同浏览器支持的视频文件格式不一样，所以添加视频时需要考虑浏览器是否支持
+    因此可以准备多个格式的视频文件，让浏览器自动选择 -->
+    <video controls>
+        <source src="../demo/flv.flv" type='video/flv'>
+        <source src="../demo/mp4.mp4" type='video/mp4'>
+            你的浏览器不支持当前视频播放
+    </video>
+</body>
+</html>

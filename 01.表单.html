@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        form{
+            width: 600px;
+            margin: 50px auto;
+        }
+        fieldset{
+            padding: 10px;
+        }
+        form input,form meter{
+            width: 100%;
+            height: 30px;
+            border: none;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            margin: 5px 0;
+            padding-left: 10px;
+            font-size: 14px;
+            /* width = 内容 + padding + border */
+            box-sizing: border-box;
+        }
+        form meter{
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>学生档案</legend>
+            <label for="username">姓名：</label><br>
+            <input type="text" name='username' id="username" placeholder="请输入用户名">
+
+            <label for="phonenumber">手机号码：</label><br>
+            <input type="tel" name='phonenumber' id="phonenumber" pattern="^1\d{10}$">
+
+            <label for="email">邮箱地址：</label><br>
+            <input type="email" name='email' id="email" required>
+
+            <label for="collage">所属学院：</label><br>
+            <input type="text" name='collage' id="collage" placeholder="请选择" list='coll'> 
+            <datalist id="coll">
+                <option value="电子与信息工程学院"></option>
+                <option value="海洋与生化工程学院"></option>
+                <option value="教育学院"></option>
+                <option value="体育学院"></option> 
+            </datalist>
+
+            <label for="score">入学成绩：</label><br>
+            <input type="number" name='score' id="score" max="100" min="0" >
+
+            <label for="">基础水平：</label><br>
+            <meter id='level' max="100" min="0" low="59" high="85"></meter>
+
+            <label for="intime">入学时间：</label><br>
+            <input type="date" name='intime' id="intime">
+
+            <label for="outtime">毕业时间：</label><br>
+            <input type="date" name='outtime' id="outtime">
+
+            <input type="submit">
+        </fieldset>
+        
+    </form>
+
+<script>
+    document.querySelector('#score').oninput = function(){
+        document.querySelector('#level').value = this.value;
+    }
+</script>
+</body>
+</html>

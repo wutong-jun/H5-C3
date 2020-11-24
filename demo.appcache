@@ -1,0 +1,16 @@
+CACHE MANIFEST
+# 以上为当前文档的第一句  后面写注释
+
+# 需缓存的文件清单列表；即网络断开时只能看到当前文件列表文件
+CACHE:
+./image/fafa.png
+
+
+# 配置每一次都需要重新从服务器获取的文件清单列表
+NETWORK:
+./image/sun.png
+
+
+# 配置如果文件无法获取则使用指定的文件进行替代
+FALLBACK:
+./image/whitecloud.jpg  ./image/fafa.png

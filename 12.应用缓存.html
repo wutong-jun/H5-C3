@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!-- 建议文件扩展名为appcache 本质是文本文件 -->
+<html lang="en" manifest="demo.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 应用缓存，通过创建cache manifest.
+    如果要启用应用程序缓存，需要在文档的<html>中包含manifest属性 -->
+    <img src="./image/fafa.png" alt="">
+    <img src="./image/sun.jpg" alt="">
+    <img src="./image/whitecloud.jpg" alt="">
+</body>
+</html>

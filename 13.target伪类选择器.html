@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box:target {
+            color: red;
+        }
+/* 匹配到id为box2的元素，字体样式改为红色 */
+        #box2:target {
+            color: pink;
+        }
+/* 获取第一个字符，实现首字下沉 */
+        p::first-letter{
+            color: blueviolet;
+            font-size: 26px;
+            float: left;/*文本环绕*/
+        }
+        /* 获取第一行内容 */
+        p::first-line{
+            text-decoration: underline;
+        }
+        /* 设置当前选中文本的值 */
+        /* 只能设置显示样式，不能改变内容大小 */
+        p::selection{
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 匹配文档中被相关url指向的目标元素 -->
+    <a href="#box">第一章</a>
+    <a href="#box2">第二章</a>
+    <h2 id='box'>采访1</h2>
+    <p id='first'>中新网北京11月5日电 (记者 梁晓辉)中国外交部副部长乐玉成5日在习近平主席出席
+        <br>上海合作组织成员国元首理事会第二十次会议中外媒体吹风会上，应询介绍中方对美国
+        总统选举看法及其对中美关系的影响。
+    </p>
+    <h3 id='box2'>采访2</h3>
+    <p>乐：很不幸，现在有些政客把新冠肺炎疫情这个问题极大地政治化了，这是我们不愿意看到的
+        <br>当前形势下，我们应该团结一心，共抗疫情，共克时艰，而不是相互指责，去搞政治操弄。
+    </p>
+
+</body>
+
+</html>

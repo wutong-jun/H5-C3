@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 800px;
+            /* height: 500px; */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./image/fafa.png" alt="">
+        <input type="button" value="全屏显示" id="full">
+        <input type="button" value="退出全屏" id="cancel">
+        <input type="button" value="是否全屏状态" id="isfull">   
+    </div>
+
+<script>
+// 全屏操作的主要方法和属性
+// 1. requestFullScreen()；开启全屏
+// 有兼容性问题  所以不同浏览器需要添加不同的前缀
+// chrome：webkit  firefox:moz  ie:me  opera:o
+
+// 2. cancelFullscreen() 退出全屏  只能使用document来实现
+// 3.fullScreenElement:是否全屏状态
+    window.onload = function(){
+        let div = document.querySelector('div')
+        document.querySelector('#full').onclick = function(){
+        //    兼容性处理
+            if(div.requestFullScreen){
+                div.requestFullScreen();
+            }else if (div.webkitRequestFullScreen){
+                div.webkitRequestFullscreen();
+            }else if(div.mozRequestFullScreen){
+                div.mozRequestFullScreen();
+            }else if(div.meRequestFullScreen){
+                div.meRequestFullScreen();
+            }
+        }
+    
+        document.querySelector('#cancel').onclick = function(){
+        //    退出全屏
+        console.log(1);
+            if(document.cancelFullScreen){
+                document.cancelFullScreen();
+            }else if(document.webkitCancelFullScreen){
+                document.webkitCancelFullScreen();
+            }else if(document.mozCancelFullScreen){
+                document.mozCancelFullScreen();
+            }else if(document.meCancelFullScreen){
+                document.meCancelFullScreen();
+            }
+        }
+   
+        document.querySelector('#isfull').onclick = function(){
+            if(document.fullscreenElement || document.webkitFullscreenElement ||
+            document.mozFullScreenElement || document.msFullscreenElement){
+                alert(true);
+            }else{
+                alert(false);
+            }
+        }
+    }
+</script>
+</body>
+</html>

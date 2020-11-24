@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tuozhuai</title>
+    <style>
+        .box1{
+            float: left;
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+            
+        }
+        .box2{
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin-left: 120px;
+            border:2px solid pink;
+        }
+        p{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 拖拽接口，把要拖拽的元素添加draggable="true"属性 图片和链接默认是可以拖拽的 -->
+    <!-- 拖拽元素:
+        ondrag  应用于拖拽元素，整个拖拽过程都会调用
+        ondragstart:应用于拖拽元素，当拖拽开始时调用
+        ondragleave:应用于拖拽元素，当鼠标离开拖拽元素时调用
+        ondragend:应用于拖拽元素，当拖拽结束时调用
+    -->
+    <!-- 目标元素
+        ondragenter:应用于目标元素，当拖拽元素进入时调用
+        ondragover:应用于目标元素，当停留在目标元素上时调用
+        ondrop:应用于目标元素，当在目标元素上松开鼠标时调用 浏览器默认阻止
+        ondragleave:应用于目标元素，当鼠标离开目标元素时调用
+    -->
+    <div class="box1">
+        <p id="pb" draggable="true">我是被拖拽的</p>
+    </div>
+    <div class="box2"></div>
+</body>
+<script>
+   document.ondragstart = function (e) { 
+       //通过事件捕获来获取当前被拖拽的元素
+       e.target.style.opacity = .5;
+       e.target.parentNode.style.borderWidth = '5px';
+    //通过dataTransfer来实现数据的存储和获取
+    //setData(format,data):
+    //format：数据类型：text/html  text/uri-list  data：数据
+       e.dataTransfer.setData('text/html',e.target.id);
+    }
+    document.ondragend = function (e) { 
+        e.target.style.opacity = 1;      
+     }
+     document.ondragover = function (e) { 
+        e.preventDefault();
+      }
+      document.ondrop = function (e) { 
+        //   获取数据  e.target.id元素的id值
+        let id = e.dataTransfer.getData('text/html');
+        console.log(id);
+        //通过元素的id值将元素追加到页面上
+        e.target.appendChild(document.getElementById(id));
+       }
+</script>
+</html>

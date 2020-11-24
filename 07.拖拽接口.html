@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            float: left;
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+            
+        }
+        .box2{
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin-left: 120px;
+            border:2px solid pink;
+        }
+        p{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 拖拽接口，把要拖拽的元素添加draggable="true"属性 图片和链接默认是可以拖拽的 -->
+    <!-- 拖拽元素:
+        ondrag  应用于拖拽元素，整个拖拽过程都会调用
+        ondragstart:应用于拖拽元素，当拖拽开始时调用
+        ondragleave:应用于拖拽元素，当鼠标离开拖拽元素时调用
+        ondragend:应用于拖拽元素，当拖拽结束时调用
+    -->
+    <!-- 目标元素
+        ondragenter:应用于目标元素，当拖拽元素进入时调用
+        ondragover:应用于目标元素，当停留在目标元素上时调用
+        ondrop:应用于目标元素，当在目标元素上松开鼠标时调用 浏览器默认阻止
+        ondragleave:应用于目标元素，当鼠标离开目标元素时调用
+    -->
+    <div class="box1">
+        <p id="pb" draggable="true">我是被拖拽的</p>
+    </div>
+    <div class="box2"></div>
+</body>
+<script>
+    let pb = document.querySelector('#pb');
+    let box1 = document.querySelector('.box1');
+    pb.ondragstart = function(){
+        console.log('onsdragtart');
+    }
+    let box2 = document.querySelector('.box2');
+    box2.ondragover = function(e){
+        console.log('ondragover');
+        e.preventDefault();
+    }
+    // 浏览器默认阻止次事件。压迫在ondargover上阻止此事件
+    box2.ondrop = function(){
+        console.log('ondrop');
+        // 添加被拖拽的元素到目标元素
+        box2.appendChild(pb);
+    }
+    box1.ondragover = function(e){
+        console.log('ondragover');
+        e.preventDefault();
+    }
+    box1.ondrop = function(){
+        box1.append(pb);
+    }
+</script>
+</html>

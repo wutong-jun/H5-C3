@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- localStorage：存储数据到本地 存储容量20md左右
+    1.不同浏览器不能共享数据，但在同一浏览器不同窗口可以共享
+    2.永久有效，他的数据是存储在硬盘上的，不会随浏览器关闭而失效，必须要手动清除
+    -->
+    <input type="text" id='username'><br>
+    <input type="button" value="存储数据" id='setdata'>
+    <input type="button" value="获取数据" id='getdata'>
+    <input type="button" value="删除数据" id='removedata'>
+<script>
+    document.querySelector('#setdata').onclick = function(){
+        let name = document.querySelector('#username').value;
+        //存储数据
+        window.localStorage.setItem('username',name);        
+    }
+    document.querySelector('#getdata').onclick = function(){
+        //获取数据
+        let na = window.localStorage.getItem('username');
+        alert(na);
+    }
+    document.querySelector('#removedata').onclick = function(){
+        //删除数据
+        window.localStorage.removeItem('username');
+        
+    }  
+</script>
+</body>
+</html>

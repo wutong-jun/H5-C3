@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="./css/13.1 video.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/index.js"></script>
+    <!-- <link href="./css/style.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src:  url('./fonts/icomoon.eot?rcqy4g');
+            src:  url('./fonts/icomoon.eot?rcqy4g#iefix') format('embedded-opentype'),
+                url('./fonts/icomoon.ttf?rcqy4g') format('truetype'),
+                url('./fonts/icomoon.woff?rcqy4g') format('woff'),
+                url('./fonts/icomoon.svg?rcqy4g#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="player" >
+        <video src="./image/《一花一剑》.mp4" loop></video>
+        <div class="control">
+            <!-- 播放按钮 -->
+            <a href="javascript:;" class="switch"><span class="play play-icon"></span></a>
+            <!-- 全屏按钮 -->
+            <a href="javascript:;" class="expend"><span class="full-icon"></span></a>
+            <div class="progress">
+                <!-- bar用来响应事件 实现视频跳播 -->
+                <div class="bar"></div>
+                <!-- 已加载进度条 -->
+                <div class="loaded"></div>
+                <!-- 已播放进度条 -->
+                <div class="elapse"></div>
+            </div>
+            <!-- 播放时间 -->
+            <div class="time">
+                <span class="currentTime">00:00:00</span>/
+                <span class="totalTime">00:00:00</span>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+<script>
+    $(function(){
+        let video = $('video');
+        $('.player').on({
+            mouseenter:function(){
+                $('.control').fadeTo(500,1);
+            },
+            mouseleave:function(){
+                $('.control').fadeTo(500,0);
+            }
+        })
+    })
+//    $(function(){
+//        var video = $('video')[0];
+//        $('.switch').click(function(){
+//            if(video.paused){
+//                video.play();
+//             //    $('.play').innerHTML = '';
+//            }else{
+//                video.pause();
+//             //    $('.play').innerHTML = '';
+//            }
+//        })
+//         video.oncanplay = function(){
+//             // setTimeout(function(){
+//             //     video.style.display = 'block';
+//             //     console.log(11);
+//             // },200)
+            
+//             let total = video.duration;
+//             let hour = Math.floor(total/3600);
+//             hour = hour<10?'0'+hour:hour;
+//             let minute = Math.floor(total%3600/60);
+//             minute = minute<10?'0'+minute:minute;
+//             let second = Math.floor(total%60)
+//             second = second<10?'0'+second:second;
+//             $('.totalTime').html(hour+':'+minute+':'+second);
+//             console.log(hour+':'+minute+':'+second);
+//         }
+//    })
+    
+</script>
+</body>
+</html>

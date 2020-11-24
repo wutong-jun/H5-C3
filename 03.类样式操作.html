@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .oneli{
+            font-size: 20px;
+        }
+        .red{
+            color: red;
+            text-decoration: underline;
+        }
+        .green{
+            color: green;
+            list-style: none;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="oneli">html5</li>
+        <li class="green">新增的</li>
+        <li>类样式</li>
+        <li>操作</li>
+    </ul>
+    <input type="button" value="为第一个li添加样式" id="add">
+    <input type="button" value="为第二个li移除样式" id="remove">
+    <input type="button" value="为第三个li切换样式" id="toggle">
+    <input type="button" value="判断是否包含某个样式" id="contain">
+<script>
+    window.onload = function(){
+        document.querySelector('#add').onclick = function(){
+            // querySelector找到满足条件元素的第一个
+            // classList:当前元素的所以样式列表
+            // add:添加样式  一次只能添加一个
+            document.querySelector('li').classList.add('red');
+
+            // className会覆盖之前的所有样式
+            // document.querySelector('li').className = 'red'
+
+            // 获取之前添加的样式
+            let result = document.querySelector('li').classList.item(0);
+            console.log(result);
+            
+        }
+        document.querySelector('#remove').onclick = function(){
+            // remove:为元素移除指定名称的样式，不是移除class属性
+            document.querySelector('.green').classList.remove('green')
+        }
+        document.querySelector('#toggle').onclick = function(){
+            //toggle:切换元素样式，如果之前没有指定样式则添加，如果有则移除
+            document.querySelectorAll('li')[2].classList.toggle('green')
+        }
+        document.querySelector('#contain').onclick = function(){
+            //contains:判断是否包含某个样式
+            let res = document.querySelectorAll('li')[3].classList.contains('green')
+            console.log(res);//false
+        }
+    }
+</script>
+</body>
+</html>
